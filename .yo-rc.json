@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.myapp"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "microservice",
+    "baseName": "Startup",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzUyZTJmNWJiMDZlYTMzMDIwYmM5NjI5MDFlMDg5NTI2YjNhYWZjMzFkNjk2ZjlmODVmMmFjZWQ3MGQ1MzdjMTE4YTMxNDZhNDI3N2NiN2I1NWRjYTUzMWM3Yjg5MGMwY2RmN2JjMTllZWUxMDM1ODM5ZGU5YWE0OWJkMTY0YTA=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
