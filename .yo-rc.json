@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.orderonline.backend",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "microservice",
+    "baseName": "OrderOnlineBackEnd",
+    "packageName": "com.orderonline.backend",
+    "packageFolder": "com/orderonline/backend",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZGI0Y2ZmODQ1OWViYzhlMGJhMGQ5YWY4MzA0Mzk1YWRkNmFkYTMwNDQwMDlkOWRiOTFmOWFjZGM2NmIzYmMwZjUzNDEwOTczNDhlMDgwMTMzOGViNmM1MzRmMzg4MGQ1MzI4YjE0Y2Y1ZDYxN2QyZmE1OGU4NTA1N2YxNWNiMDI=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "es",
+    "languages": [
+      "es"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
