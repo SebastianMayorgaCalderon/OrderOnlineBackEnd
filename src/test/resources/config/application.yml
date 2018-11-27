@@ -16,12 +16,12 @@
 
 spring:
     application:
-        name: Startup
+        name: OrderOnlineBackEnd
     cache:
         type: simple
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:Startup;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        url: jdbc:h2:mem:OrderOnlineBackEnd;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         name:
         username:
         password:
@@ -84,7 +84,7 @@ jhipster:
         authentication:
             jwt:
                 # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: YzUyZTJmNWJiMDZlYTMzMDIwYmM5NjI5MDFlMDg5NTI2YjNhYWZjMzFkNjk2ZjlmODVmMmFjZWQ3MGQ1MzdjMTE4YTMxNDZhNDI3N2NiN2I1NWRjYTUzMWM3Yjg5MGMwY2RmN2JjMTllZWUxMDM1ODM5ZGU5YWE0OWJkMTY0YTA=
+                base64-secret: ZGI0Y2ZmODQ1OWViYzhlMGJhMGQ5YWY4MzA0Mzk1YWRkNmFkYTMwNDQwMDlkOWRiOTFmOWFjZGM2NmIzYmMwZjUzNDEwOTczNDhlMDgwMTMzOGViNmM1MzRmMzg4MGQ1MzI4YjE0Y2Y1ZDYxN2QyZmE1OGU4NTA1N2YxNWNiMDI=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
