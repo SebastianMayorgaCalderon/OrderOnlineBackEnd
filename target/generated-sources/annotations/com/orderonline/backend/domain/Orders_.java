@@ -15,11 +15,13 @@ public abstract class Orders_ {
 	public static volatile SingularAttribute<Orders, Double> totalPrice;
 	public static volatile SingularAttribute<Orders, Restaurant> restaurant;
 	public static volatile SingularAttribute<Orders, Boolean> available;
+	public static volatile SingularAttribute<Orders, String> details;
 	public static volatile SetAttribute<Orders, Dishes> dishes;
 	public static volatile SetAttribute<Orders, Combos> combos;
 	public static volatile SingularAttribute<Orders, Long> id;
 	public static volatile SingularAttribute<Orders, Double> ivi;
 	public static volatile SingularAttribute<Orders, Double> subTotalPrice;
+	public static volatile SingularAttribute<Orders, Integer> tableNumber;
 
 }
 
