@@ -67,7 +67,7 @@ public class CombosService {
     public Page<CombosDTO> findAllWithEagerRelationships(Pageable pageable) {
         return combosRepository.findAllWithEagerRelationships(pageable).map(combosMapper::toDto);
     }
-    
+
 
     /**
      * Get one combos by id.

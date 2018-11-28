@@ -17,6 +17,7 @@ public abstract class Restaurant_ {
 	public static volatile SetAttribute<Restaurant, Combos> combos;
 	public static volatile SingularAttribute<Restaurant, Long> id;
 	public static volatile SetAttribute<Restaurant, Category> categories;
+	public static volatile SingularAttribute<Restaurant, Integer> userID;
 
 }
 
