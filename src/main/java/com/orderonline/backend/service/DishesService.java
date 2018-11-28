@@ -67,7 +67,7 @@ public class DishesService {
     public Page<DishesDTO> findAllWithEagerRelationships(Pageable pageable) {
         return dishesRepository.findAllWithEagerRelationships(pageable).map(dishesMapper::toDto);
     }
-    
+
 
     /**
      * Get one dishes by id.

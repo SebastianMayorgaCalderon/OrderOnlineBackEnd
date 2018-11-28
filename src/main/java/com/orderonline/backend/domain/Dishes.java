@@ -36,7 +36,7 @@ public class Dishes implements Serializable {
     @Column(name = "available", nullable = false)
     private Boolean available;
 
-    
+
     @Lob
     @Column(name = "image", nullable = false)
     private byte[] image;

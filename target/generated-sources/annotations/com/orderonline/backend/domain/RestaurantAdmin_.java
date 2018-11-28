@@ -10,6 +10,7 @@ public abstract class RestaurantAdmin_ {
 
 	public static volatile SingularAttribute<RestaurantAdmin, String> name;
 	public static volatile SingularAttribute<RestaurantAdmin, Long> id;
+	public static volatile SingularAttribute<RestaurantAdmin, User> user;
 
 }
 

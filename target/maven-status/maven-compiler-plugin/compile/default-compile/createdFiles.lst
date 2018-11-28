@@ -3,6 +3,7 @@ com\orderonline\backend\aop\logging\LoggingAspect.class
 com\orderonline\backend\domain\Category.class
 com\orderonline\backend\web\rest\OrdersResource.class
 com\orderonline\backend\domain\PricePerProduct.class
+com\orderonline\backend\service\dto\UserDTO.class
 com\orderonline\backend\config\FeignConfiguration.class
 com\orderonline\backend\domain\Combos.class
 com\orderonline\backend\domain\Dishes.class
@@ -19,6 +20,7 @@ com\orderonline\backend\service\OrdersService.class
 com\orderonline\backend\client\UserFeignClientInterceptor.class
 com\orderonline\backend\service\mapper\CategoryMapperImpl.class
 com\orderonline\backend\service\mapper\RestaurantMapper.class
+com\orderonline\backend\service\MailService.class
 com\orderonline\backend\service\mapper\RestaurantAdminMapper.class
 com\orderonline\backend\service\dto\CombosDTO.class
 com\orderonline\backend\config\DateTimeFormatConfiguration.class
@@ -34,6 +36,7 @@ com\orderonline\backend\service\mapper\PricePerProductMapperImpl.class
 com\orderonline\backend\repository\OffersRepository.class
 com\orderonline\backend\service\RestaurantAdminService.class
 com\orderonline\backend\security\AuthoritiesConstants.class
+com\orderonline\backend\domain\User_.class
 com\orderonline\backend\config\ApplicationProperties.class
 com\orderonline\backend\service\dto\OffersDTO.class
 com\orderonline\backend\web\rest\util\HeaderUtil.class
@@ -41,6 +44,8 @@ com\orderonline\backend\web\rest\RestaurantResource.class
 com\orderonline\backend\domain\Offers.class
 com\orderonline\backend\config\DefaultProfileUtil.class
 com\orderonline\backend\web\rest\vm\LoggerVM.class
+com\orderonline\backend\repository\CustomAuditEventRepository.class
+com\orderonline\backend\service\util\RandomUtil.class
 com\orderonline\backend\config\LocaleConfiguration.class
 com\orderonline\backend\web\rest\util\PaginationUtil.class
 com\orderonline\backend\domain\Offers_.class
@@ -56,11 +61,15 @@ com\orderonline\backend\repository\CategoryRepository.class
 com\orderonline\backend\service\dto\OrdersDTO.class
 com\orderonline\backend\security\SecurityUtils.class
 com\orderonline\backend\config\LiquibaseConfiguration.class
+com\orderonline\backend\service\AuditEventService.class
+com\orderonline\backend\repository\UserRepository.class
 com\orderonline\backend\domain\Dishes_.class
 com\orderonline\backend\domain\PersistentAuditEvent.class
 com\orderonline\backend\web\rest\errors\BadRequestAlertException.class
 com\orderonline\backend\web\rest\errors\InvalidPasswordException.class
 com\orderonline\backend\web\rest\errors\ErrorConstants.class
+com\orderonline\backend\service\mapper\UserMapper.class
+com\orderonline\backend\domain\Authority_.class
 com\orderonline\backend\web\rest\CategoryResource.class
 com\orderonline\backend\web\rest\DishesResource.class
 com\orderonline\backend\ApplicationWebXml.class
@@ -69,6 +78,7 @@ com\orderonline\backend\domain\RestaurantAdmin_.class
 com\orderonline\backend\domain\PricePerProduct_.class
 com\orderonline\backend\service\dto\PricePerProductDTO.class
 com\orderonline\backend\service\dto\DishesDTO.class
+com\orderonline\backend\domain\Authority.class
 com\orderonline\backend\config\AsyncConfiguration.class
 com\orderonline\backend\security\jwt\JWTConfigurer.class
 com\orderonline\backend\config\CloudDatabaseConfiguration.class
@@ -86,9 +96,12 @@ com\orderonline\backend\domain\Combos_.class
 com\orderonline\backend\service\mapper\OffersMapper.class
 com\orderonline\backend\repository\PricePerProductRepository.class
 com\orderonline\backend\web\rest\errors\FieldErrorVM.class
+com\orderonline\backend\repository\AuthorityRepository.class
 com\orderonline\backend\web\rest\errors\EmailNotFoundException.class
 com\orderonline\backend\config\JacksonConfiguration.class
+com\orderonline\backend\domain\User.class
 com\orderonline\backend\config\Constants.class
+com\orderonline\backend\repository\PersistenceAuditEventRepository.class
 com\orderonline\backend\service\dto\RestaurantDTO.class
 com\orderonline\backend\config\DatabaseConfiguration.class
 com\orderonline\backend\service\dto\RestaurantAdminDTO.class
@@ -100,12 +113,14 @@ com\orderonline\backend\repository\CombosRepository.class
 com\orderonline\backend\service\mapper\OrdersMapperImpl.class
 com\orderonline\backend\service\mapper\RestaurantAdminMapperImpl.class
 com\orderonline\backend\domain\PersistentAuditEvent_.class
+com\orderonline\backend\service\UserService.class
 com\orderonline\backend\service\CombosService.class
 com\orderonline\backend\service\mapper\DishesMapper.class
 com\orderonline\backend\config\LoggingAspectConfiguration.class
 com\orderonline\backend\config\WebConfigurer.class
 com\orderonline\backend\domain\Orders_.class
 com\orderonline\backend\OrderOnlineBackEndApp.class
+com\orderonline\backend\service\dto\PasswordChangeDTO.class
 com\orderonline\backend\service\OffersService.class
 com\orderonline\backend\service\mapper\DishesMapperImpl.class
 com\orderonline\backend\web\rest\errors\CustomParameterizedException.class

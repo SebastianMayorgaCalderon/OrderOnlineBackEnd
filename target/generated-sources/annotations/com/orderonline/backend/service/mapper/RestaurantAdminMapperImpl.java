@@ -1,47 +1,24 @@
 package com.orderonline.backend.service.mapper;
 
 import com.orderonline.backend.domain.RestaurantAdmin;
+import com.orderonline.backend.domain.User;
 import com.orderonline.backend.service.dto.RestaurantAdminDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2018-11-27T12:53:31-0600",
-    comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_171 (Oracle Corporation)"
+    date = "2018-11-28T09:07:04-0600",
+    comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_161 (Oracle Corporation)"
 )
 @Component
 public class RestaurantAdminMapperImpl implements RestaurantAdminMapper {
 
-    @Override
-    public RestaurantAdmin toEntity(RestaurantAdminDTO dto) {
-        if ( dto == null ) {
-            return null;
-        }
-
-        RestaurantAdmin restaurantAdmin = new RestaurantAdmin();
-
-        restaurantAdmin.setId( dto.getId() );
-        restaurantAdmin.setName( dto.getName() );
-
-        return restaurantAdmin;
-    }
-
-    @Override
-    public RestaurantAdminDTO toDto(RestaurantAdmin entity) {
-        if ( entity == null ) {
-            return null;
-        }
-
-        RestaurantAdminDTO restaurantAdminDTO = new RestaurantAdminDTO();
-
-        restaurantAdminDTO.setId( entity.getId() );
-        restaurantAdminDTO.setName( entity.getName() );
-
-        return restaurantAdminDTO;
-    }
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public List<RestaurantAdmin> toEntity(List<RestaurantAdminDTO> dtoList) {
@@ -69,5 +46,53 @@ public class RestaurantAdminMapperImpl implements RestaurantAdminMapper {
         }
 
         return list;
+    }
+
+    @Override
+    public RestaurantAdminDTO toDto(RestaurantAdmin restaurantAdmin) {
+        if ( restaurantAdmin == null ) {
+            return null;
+        }
+
+        RestaurantAdminDTO restaurantAdminDTO = new RestaurantAdminDTO();
+
+        Long id = restaurantAdminUserId( restaurantAdmin );
+        if ( id != null ) {
+            restaurantAdminDTO.setUserId( id );
+        }
+        restaurantAdminDTO.setId( restaurantAdmin.getId() );
+        restaurantAdminDTO.setName( restaurantAdmin.getName() );
+
+        return restaurantAdminDTO;
+    }
+
+    @Override
+    public RestaurantAdmin toEntity(RestaurantAdminDTO restaurantAdminDTO) {
+        if ( restaurantAdminDTO == null ) {
+            return null;
+        }
+
+        RestaurantAdmin restaurantAdmin = new RestaurantAdmin();
+
+        restaurantAdmin.setUser( userMapper.userFromId( restaurantAdminDTO.getUserId() ) );
+        restaurantAdmin.setId( restaurantAdminDTO.getId() );
+        restaurantAdmin.setName( restaurantAdminDTO.getName() );
+
+        return restaurantAdmin;
+    }
+
+    private Long restaurantAdminUserId(RestaurantAdmin restaurantAdmin) {
+        if ( restaurantAdmin == null ) {
+            return null;
+        }
+        User user = restaurantAdmin.getUser();
+        if ( user == null ) {
+            return null;
+        }
+        Long id = user.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
     }
 }
