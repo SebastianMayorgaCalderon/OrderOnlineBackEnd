@@ -1,6 +1,6 @@
 package com.orderonline.backend.service;
 
-import com.orderonline.backend.domain.Category;
+import com.orderonline.backend.domain.*;
 import com.orderonline.backend.repository.CategoryRepository;
 import com.orderonline.backend.service.dto.CategoryDTO;
 import com.orderonline.backend.service.mapper.CategoryMapper;
@@ -27,9 +27,12 @@ public class CategoryService {
 
     private final CategoryMapper categoryMapper;
 
-    public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
+    private final RestaurantService restaurantService;
+
+    public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper, RestaurantService restaurantService) {
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
+        this.restaurantService = restaurantService;
     }
 
     /**
@@ -52,13 +55,14 @@ public class CategoryService {
      * @param pageable the pagination information
      * @return the list of entities
      */
+
     @Transactional(readOnly = true)
-    public Page<CategoryDTO> findAll(Pageable pageable) {
+    public Page<CategoryDTO> findAll(Pageable pageable, String restaurantAdminEmail) {
         log.debug("Request to get all Categories");
-        return categoryRepository.findAll(pageable)
+        Restaurant restaurant = this.restaurantService.findOneByRestaurantAdminEmail(restaurantAdminEmail);
+        return categoryRepository.findAllByRestaurant(pageable,restaurant)
             .map(categoryMapper::toDto);
     }
-
 
     /**
      * Get one category by id.
