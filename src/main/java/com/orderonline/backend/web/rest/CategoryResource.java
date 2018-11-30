@@ -90,13 +90,12 @@ public class CategoryResource {
      */
     @GetMapping("/categories")
     @Timed
-    public ResponseEntity<List<CategoryDTO>> getAllCategories(Pageable pageable) {
+    public ResponseEntity<List<CategoryDTO>> getAllCategories(Pageable pageable,@RequestParam(value = "admin") String admin) {
         log.debug("REST request to get a page of Categories");
-        Page<CategoryDTO> page = categoryService.findAll(pageable);
+        Page<CategoryDTO> page = categoryService.findAll(pageable, admin);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/categories");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
-
     /**
      * GET  /categories/:id : get the "id" category.
      *

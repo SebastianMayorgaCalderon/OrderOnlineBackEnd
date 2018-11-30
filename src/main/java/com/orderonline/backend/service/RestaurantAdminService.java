@@ -82,4 +82,7 @@ public class RestaurantAdminService {
         log.debug("Request to delete RestaurantAdmin : {}", id);
         restaurantAdminRepository.deleteById(id);
     }
+    public RestaurantAdmin getRestaurantAdminByUser(String email){
+        return this.restaurantAdminRepository.findOneByUserEmail(email).orElse(null);
+    }
 }

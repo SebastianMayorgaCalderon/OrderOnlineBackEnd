@@ -1,6 +1,6 @@
 package com.orderonline.backend.service;
 
-import com.orderonline.backend.domain.Restaurant;
+import com.orderonline.backend.domain.*;
 import com.orderonline.backend.repository.RestaurantRepository;
 import com.orderonline.backend.service.dto.RestaurantDTO;
 import com.orderonline.backend.service.mapper.RestaurantMapper;
@@ -25,11 +25,14 @@ public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
 
+    private final RestaurantAdminService restaurantAdminService;
+
     private final RestaurantMapper restaurantMapper;
 
-    public RestaurantService(RestaurantRepository restaurantRepository, RestaurantMapper restaurantMapper) {
+    public RestaurantService(RestaurantRepository restaurantRepository, RestaurantMapper restaurantMapper,RestaurantAdminService restaurantAdminService) {
         this.restaurantRepository = restaurantRepository;
         this.restaurantMapper = restaurantMapper;
+        this.restaurantAdminService = restaurantAdminService;
     }
 
     /**
@@ -81,5 +84,11 @@ public class RestaurantService {
     public void delete(Long id) {
         log.debug("Request to delete Restaurant : {}", id);
         restaurantRepository.deleteById(id);
+    }
+    public Restaurant findOneByRestaurantAdmin(RestaurantAdmin restaurantAdmin){
+        return this.restaurantRepository.findOneByRestaurantAdmin(restaurantAdmin).orElse(null);
+    }
+    public Restaurant findOneByRestaurantAdminEmail(String email){
+        return this.findOneByRestaurantAdmin(restaurantAdminService.getRestaurantAdminByUser(email));
     }
 }
