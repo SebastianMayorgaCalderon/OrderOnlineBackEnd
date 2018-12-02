@@ -86,4 +86,7 @@ public class CategoryService {
         log.debug("Request to delete Category : {}", id);
         categoryRepository.deleteById(id);
     }
+    public Category toEntity(CategoryDTO categoryDTO) {
+        return this.categoryMapper.toEntity(categoryDTO);
+    }
 }

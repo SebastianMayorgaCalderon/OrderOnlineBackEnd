@@ -1,6 +1,6 @@
 package com.orderonline.backend.service;
 
-import com.orderonline.backend.domain.Dishes;
+import com.orderonline.backend.domain.*;
 import com.orderonline.backend.repository.DishesRepository;
 import com.orderonline.backend.service.dto.DishesDTO;
 import com.orderonline.backend.service.mapper.DishesMapper;
@@ -27,9 +27,12 @@ public class DishesService {
 
     private final DishesMapper dishesMapper;
 
-    public DishesService(DishesRepository dishesRepository, DishesMapper dishesMapper) {
+    private final CategoryService categoryService;
+
+    public DishesService(DishesRepository dishesRepository, DishesMapper dishesMapper, CategoryService categoryService) {
         this.dishesRepository = dishesRepository;
         this.dishesMapper = dishesMapper;
+        this.categoryService = categoryService;
     }
 
     /**
@@ -59,6 +62,14 @@ public class DishesService {
             .map(dishesMapper::toDto);
     }
 
+
+    public Page<DishesDTO> findAllByCategory(Pageable pageable, String categoryId) {
+        long id = Long.parseLong(categoryId);
+        log.debug("Request to get all Dishes");
+        Category category = this.categoryService.toEntity(categoryService.findOne(id).orElse(null));
+        return dishesRepository.findAllByAvailableAndCategory(pageable, true, category)
+            .map(dishesMapper::toDto);
+    }
     /**
      * Get all the Dishes with eager load of many-to-many relationships.
      *

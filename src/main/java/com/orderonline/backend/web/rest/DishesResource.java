@@ -103,6 +103,16 @@ public class DishesResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/dishes-by-category")
+    @Timed
+    public ResponseEntity<List<DishesDTO>> getAllDishesByCategory(Pageable pageable, @RequestParam(value = "categoryId") String id) {
+        log.debug("REST request to get a page of Dishes");
+        Page<DishesDTO> page = dishesService.findAllByCategory(pageable,id);
+
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, String.format("/api/dishes?eagerload=%b", false));
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
     /**
      * GET  /dishes/:id : get the "id" dishes.
      *
