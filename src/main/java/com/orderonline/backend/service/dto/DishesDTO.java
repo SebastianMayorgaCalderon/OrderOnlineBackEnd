@@ -21,6 +21,9 @@ public class DishesDTO implements Serializable {
     private String description;
 
     @NotNull
+    private Double price;
+
+    @NotNull
     private Boolean available;
 
 
@@ -60,6 +63,14 @@ public class DishesDTO implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Boolean isAvailable() {
@@ -153,6 +164,7 @@ public class DishesDTO implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
+            ", price=" + getPrice() +
             ", available='" + isAvailable() + "'" +
             ", image='" + getImage() + "'" +
             ", restaurant=" + getRestaurantId() +

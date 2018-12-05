@@ -1,80 +1,78 @@
-entity Category{
-  Name String required
-}
+    entity Category{
+        Name String required
+    }
 
-entity Dishes{
-  Name String required
-  Description String required
-  Available Boolean required
-  Image Blob required
-}
+    entity Dishes{
+        Name String required
+        Description String required
+        Price Double required
+        Available Boolean required
+        Image Blob required
+    }
 
-entity Offers{
-  Name String required
-  Price Double required
-  Image Blob
-}
+    entity Offers{
+        Name String required
+        Price Double required
+        Image Blob,
+        Available Boolean required
 
-entity RestaurantAdmin{
-    Name String
-}
+    }
 
-entity Orders{
-	TotalPrice Double required
-    SubTotalPrice Double required
-    Ivi Double required
-    Date Instant required
-    Available Boolean required
-}
-entity Restaurant {
-	Name String required
-}
+    entity RestaurantAdmin{
+        Name String
+    }
 
-entity PricePerProduct{
-	Price Double required
-    Date Instant required
-}
+    entity Orders{
+        TotalPrice Double required
+        SubTotalPrice Double required
+        Ivi Double required
+        Date Instant required
+        TableNumber Integer required
+        Details String
+        Available Boolean required
+    }
+    entity Restaurant {
+        Name String required,
+        UserID Integer
+    }
 
-entity Combos{
-	Name String required
-    Available Boolean required
-}
+    entity PricePerProduct{
+        Price Double required
+        Date Instant required
+    }
 
-
-relationship OneToMany{
-	Restaurant to Category{Restaurant}
-    Restaurant to Dishes {Restaurant}
-    Restaurant to Orders {Restaurant}
-    Restaurant to Combos {Restaurant}
-    Restaurant to Offers {Restaurant}
-    
-    Dishes to PricePerProduct{ProductDish}
-    Combos to PricePerProduct{ProductCombo}
-    Category to Dishes{Category(Name)}
-    Orders to Dishes{Dishes(Name)}
-    Orders to Combos{Combos(Name)}
-    Orders to Offers{Offers(Name)}
-      
-}
-relationship OneToOne{
-    Restaurant{RestaurantAdmin(name)} to RestaurantAdmin
-}
-relationship ManyToMany{
-	Dishes {Combos(Name)} to Combos{Dishes(Name)}
-    Dishes {Offer(Name)} to Offers{Dishes(Name)}
-    Combos {Offer(Name)} to Offers{Combos(Name)}
-}
+    entity Combos{
+        Name String required
+        Available Boolean required
+        Price Double required
+    }
 
 
+    relationship OneToMany{
+        Restaurant to Category{Restaurant}
+        Restaurant to Dishes {Restaurant}
+        Restaurant to Orders {Restaurant}
+        Restaurant to Combos {Restaurant}
+        Restaurant to Offers {Restaurant}
 
+        Dishes to PricePerProduct{ProductDish}
+        Combos to PricePerProduct{ProductCombo}
+        Category to Dishes{Category(Name)}
+        Orders to Dishes{Dishes(Name)}
+        Orders to Combos{Combos(Name)}
+        Orders to Offers{Offers(Name)}
 
+    }
+    relationship OneToOne{
+        RestaurantAdmin{User} to User{RestaurantAdmin}
+        Restaurant{RestaurantAdmin(name)} to RestaurantAdmin
+    }
 
-
-
-
-
-
-
+    relationship ManyToMany{
+        Combos{Dishes(Name)} to Dishes {Combos(Name)}
+        Offers{Dishes(Name)} to Dishes {Offer(Name)}
+        Offers{Combos(Name)}to  Combos {Offer(Name)}
+    }
 
 
 
@@ -88,6 +86,17 @@ relationship ManyToMany{
 
 
 
-paginate all with pagination
-dto * with mapstruct
-service all with serviceClass
+
+
+
+
+
+
+
+
+
+
+
+    paginate all with pagination
+    dto * with mapstruct
+    service all with serviceClass
